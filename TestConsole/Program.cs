@@ -7,6 +7,7 @@ using stellar_dotnetcore_sdk;
 using stellar_dotnetcore_sdk.requests;
 using stellar_dotnetcore_sdk.responses;
 using stellar_dotnetcore_sdk.responses.operations;
+using static QRCoder.PayloadGenerator;
 
 namespace TestConsole
 {
@@ -20,18 +21,21 @@ namespace TestConsole
         {
             // GAZHWW2NBPDVJ6PEEOZ2X43QV5JUDYS3XN4OWOTBR6WUACTUML2CCJLI
 
+            BitcoinAddress btcGen = new BitcoinAddress("175tWpb8K1S7NmH4Zx6rewF9WQrcZv245W", 1.5d);
+            string payload = btcGen.ToString();
 
             QRCodeGenerator qrGenerator = new QRCodeGenerator();
-            QRCodeData qrCodeData = qrGenerator.CreateQrCode("GAZHWW2NBPDVJ6PEEOZ2X43QV5JUDYS3XN4OWOTBR6WUACTUML2CCJLI", QRCodeGenerator.ECCLevel.Q);
+            QRCodeData qrCodeData = qrGenerator.CreateQrCode(payload, QRCodeGenerator.ECCLevel.Q);
             QRCode qrCode = new QRCode(qrCodeData);
 
-            //Bitmap qrCodeImage = qrCode.GetGraphic(20);
-            //qrCodeImage.Save("Test.png");
+            Bitmap qrCodeImage = qrCode.GetGraphic(20);
+            qrCodeImage.Save("Test.png");
 
-            AsciiQRCode qrCodeAcsii = new AsciiQRCode(qrCodeData);
 
-            Console.WriteLine("");
-            Console.WriteLine(qrCodeAcsii.GetGraphic(1));
+            //AsciiQRCode qrCodeAcsii = new AsciiQRCode(qrCodeData);
+
+            //Console.WriteLine("");
+            //Console.WriteLine(qrCodeAcsii.GetGraphic(1));
 
             //Network.UseTestNetwork();
             //var server = new Server("https://horizon-testnet.stellar.org");

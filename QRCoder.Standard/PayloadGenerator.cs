@@ -2118,7 +2118,6 @@ namespace QRCoder
             return inp;
         }
 
-        
 
         public static bool ChecksumMod10(string digits)
         {
