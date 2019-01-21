@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 
 namespace stellar_dotnet_sdk.responses
 {
-    public class AccountResponse : Response, IPagingToken
+    public class AccountResponse : Response, ITransactionBuilderAccount, IPagingToken
     {
         private AccountResponse()
         {
@@ -21,6 +21,7 @@ namespace stellar_dotnet_sdk.responses
         }
 
         [JsonProperty(PropertyName = "account_id")]
+        [JsonConverter(typeof(KeyPairTypeAdapter))]
         public KeyPair KeyPair { get; set; }
 
         [JsonProperty(PropertyName = "sequence")]
