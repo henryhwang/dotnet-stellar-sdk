@@ -72,4 +72,4 @@ You can use that version of xdrgen to regenerate the XDR files from the .x files
 dotnetcore-stellar-sdk is licensed under an Apache-2.0 license. See the [LICENSE](https://github.com/elucidsoft/dotnetcore-stellar-sdk/blob/master/LICENSE.txt) file for details.
 
 ## Sample Change
-[link point to another file](https://henryhwang.github.io/dotnet-stellar-sdk/secondPage.md)
+[link point to another file](https://henryhwang.github.io/dotnet-stellar-sdk/secondPage)
